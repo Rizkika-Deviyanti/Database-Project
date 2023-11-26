@@ -1,0 +1,143 @@
+﻿@model IEnumerable<web_new_lumiere.Models.vw_product>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<p></p>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10"><h4>Your Skintype?</h4></div>
+    <div class="col-md-2"></div>
+</div>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="categoryradios" id="categoryradios1" value="dry" checked>
+            <label class="form-check-label" for="categoryradios1">
+                Dry
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="categoryradios" id="categoryradios2" value="oily">
+            <label class="form-check-label" for="categoryradios2">
+                Oily
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="categoryradios" id="categoryradios3" value="combination">
+            <label class="form-check-label" for="categoryradios3">
+                Combination
+            </label>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+<p></p>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10"><h4>The Product You Looking For?</h4></div>
+    <div class="col-md-2"></div>
+</div>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="productradios" id="productradio1" value="toner" checked>
+            <label class="form-check-label" for="productradio1">
+                Toner
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="productradios" id="productradio2" value="cleanser">
+            <label class="form-check-label" for="productradio2">
+                Cleanser
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="productradios" id="productradio3" value="mosturizer">
+            <label class="form-check-label" for="productradio3">
+                Mosturizer
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="productradios" id="productradio4" value="face mask">
+            <label class="form-check-label" for="productradio4">
+                Face Mask
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="productradios" id="productradio5" value="serum">
+            <label class="form-check-label" for="productradio5">
+                Serum
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="productradios" id="productradio6" value="sunscreen">
+            <label class="form-check-label" for="productradio6">
+                Sunscreen
+            </label>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+<p></p>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10"><h4>Your Budget?</h4></div>
+    <div class="col-md-2"></div>
+</div>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+        <div class="input-group">
+            <span class="input-group-addon">Start From Rp</span>
+            <input type="number" class="form-control" placeholder="Harga" aria-describedby="minprice" id="minprice">
+        </div>
+
+
+    </div>
+    <div class="col-md-4">
+        <div class="input-group">
+            <span class="input-group-addon">Until Rp</span>
+            <input type="number" class="form-control" placeholder="Harga" aria-describedby="maxprice" id="maxprice">
+        </div>
+    </div>
+    <div class="col-md-2">
+        <button type="button" class="btn btn-success" id="btnfind">Find Product!</button>
+    </div>
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+        $("#btnfind").click(function () {
+
+            var categoryValue = $("input[name='categoryradios']:checked").val();
+            var subcategoryValue = $("input[name='productradios']:checked").val();
+            var minpriceValue = $("#minprice").val();
+            var maxpriceValue = $("#maxprice").val();
+
+            var urlToOpen = "/product/Result?pageno=1&category_code=" + categoryValue + "&sub_category_code=" + subcategoryValue +
+                "&minprice=" + minpriceValue + "&maxprice=" + maxpriceValue;
+
+            window.location.href = urlToOpen;
+        });
+    })
+
+</script>

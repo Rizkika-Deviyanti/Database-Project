@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_lumiere_newModelStoreContainer" CdmEntityContainer="db_lumiere_newEntities">
+    <EntitySetMapping Name="tbl_brand">
+      <EntityTypeMapping TypeName="db_lumiere_newModel.tbl_brand">
+        <MappingFragment StoreEntitySet="tbl_brand">
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="brand_code" ColumnName="brand_code" />
+          <ScalarProperty Name="brand_desc" ColumnName="brand_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_category">
+      <EntityTypeMapping TypeName="db_lumiere_newModel.tbl_category">
+        <MappingFragment StoreEntitySet="tbl_category">
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="category_code" ColumnName="category_code" />
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_product">
+      <EntityTypeMapping TypeName="db_lumiere_newModel.tbl_product">
+        <MappingFragment StoreEntitySet="tbl_product">
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="category_code" ColumnName="category_code" />
+          <ScalarProperty Name="subcategory_code" ColumnName="subcategory_code" />
+          <ScalarProperty Name="brand_code" ColumnName="brand_code" />
+          <ScalarProperty Name="product_desc" ColumnName="product_desc" />
+          <ScalarProperty Name="product_url" ColumnName="product_url" />
+          <ScalarProperty Name="product_size" ColumnName="product_size" />
+          <ScalarProperty Name="product_price" ColumnName="product_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_subcategory">
+      <EntityTypeMapping TypeName="db_lumiere_newModel.tbl_subcategory">
+        <MappingFragment StoreEntitySet="tbl_subcategory">
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="subcategory_code" ColumnName="subcategory_code" />
+          <ScalarProperty Name="subcategory_desc" ColumnName="subcategory_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_product">
+      <EntityTypeMapping TypeName="db_lumiere_newModel.vw_product">
+        <MappingFragment StoreEntitySet="vw_product">
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="pid_category" ColumnName="pid_category" />
+          <ScalarProperty Name="category_code" ColumnName="category_code" />
+          <ScalarProperty Name="pid_subcategory" ColumnName="pid_subcategory" />
+          <ScalarProperty Name="subcategory_code" ColumnName="subcategory_code" />
+          <ScalarProperty Name="pid_brand" ColumnName="pid_brand" />
+          <ScalarProperty Name="brand_code" ColumnName="brand_code" />
+          <ScalarProperty Name="product_desc" ColumnName="product_desc" />
+          <ScalarProperty Name="product_url" ColumnName="product_url" />
+          <ScalarProperty Name="product_size" ColumnName="product_size" />
+          <ScalarProperty Name="product_price" ColumnName="product_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_role">
+      <EntityTypeMapping TypeName="db_lumiere_newModel.tbl_role">
+        <MappingFragment StoreEntitySet="tbl_role">
+          <ScalarProperty Name="roledesc" ColumnName="roledesc" />
+          <ScalarProperty Name="roleid" ColumnName="roleid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_user_role">
+      <EntityTypeMapping TypeName="db_lumiere_newModel.tbl_user_role">
+        <MappingFragment StoreEntitySet="tbl_user_role">
+          <ScalarProperty Name="roleid" ColumnName="roleid" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_user_roles">
+      <EntityTypeMapping TypeName="db_lumiere_newModel.vw_user_roles">
+        <MappingFragment StoreEntitySet="vw_user_roles">
+          <ScalarProperty Name="roledesc" ColumnName="roledesc" />
+          <ScalarProperty Name="roleid" ColumnName="roleid" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

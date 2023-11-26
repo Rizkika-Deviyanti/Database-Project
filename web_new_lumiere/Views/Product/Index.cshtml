@@ -1,0 +1,144 @@
+﻿@model IEnumerable<web_new_lumiere.Models.vw_product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<p>
+    @ViewBag.roleid
+</p>
+
+@{
+    int colcounter = 0;
+    bool isclosed = false;
+
+    foreach (var item in Model)
+    {
+        if (colcounter == 0)
+        {
+            isclosed = false;
+            @:<div class="row">
+            }
+
+            colcounter = colcounter + 1;
+
+            
+            @:<div class="col-md-3">
+                @:<div class="panel panel-success">
+                    @:<div class="panel-heading"><span class="panel-title">@item.subcategory_code (@item.category_code)</span></div>
+                    @:<div class="panel-body">
+                        @:<img src="/Content/1.jpeg" style="width:100%" />
+                        @:<p></p>
+                        @:<span>@item.brand_code</span><br />
+                        @:<strong>@item.product_name</strong><p><span>@item.product_size ml</span></p><p>@item.product_desc</p>
+                        @:<p></p>
+                        @:<strong>@Html.Raw(@String.Format("{0:c}", item.product_price))</strong>
+                    @:</div>
+                    @:<div class="panel-footer"><a href="@item.product_url" target="_blank" class="btn btn-info btn-group btn-group-justified btn-group-sm" role="button">Link</a></div>
+
+
+                    if (Request.IsAuthenticated && ViewBag.roleid==0)
+                    {
+                        @:<div class="row">
+                            @:<div class="col-md-2"></div>
+                            @:<div class="col-md-4">
+                                @:<a href="/Product/Edit?id=@item.pid" target="_self" class="btn btn-success btn-group btn-group-justified btn-group-sm" role="button">Edit</a>
+                            @:</div>
+                            @:<div class="col-md-4">
+                                @:<a name="btndelete" href="/Product/Delete?id=@item.pid" target="_self" class="btn btn-danger btn-group btn-group-justified btn-group-sm" role="button">Delete</a>
+                            @:</div>
+                            @:<div class="col-md-2"></div>
+                        @:</div>
+                    }
+
+
+                @:</div>
+
+            @:</div>
+
+            if (colcounter == 4)
+            {
+                colcounter = 0;
+            @:</div>
+            isclosed = true;
+        }
+
+
+    }
+
+    if (isclosed == false)
+    {
+        @:</div>
+    }
+}
+
+@{ if (Model.Count() == 12)
+    {
+        <p></p>
+        <div class="row">
+            <div class="col-md-9"></div>
+            <div class="col-md-3" style="float: right;">
+                @if (ViewBag.pageno > 0)
+                {
+                    <button type="button" class="btn btn-success" id="btnbefore">Sebelumnya</button>
+                }
+                else
+                {
+                    <button type="button" class="btn btn-success" disabled>Sebelumnya</button>
+                }
+                <button type="button" class="btn btn-success" id="btnnext">Selanjutnya</button>
+            </div>
+        </div>
+
+    }
+    else
+    {
+
+        <p></p>
+        <div class="row">
+            <div class="col-md-9"></div>
+            <div class="col-md-3" style="float: right;">
+                @if (ViewBag.pageno > 1)
+                {
+                    <button type="button" class="btn btn-success" id="btnbefore">Sebelumnya</button>
+                    <button type="button" class="btn btn-success" disabled>Selanjutnya</button>
+                }
+
+            </div>
+        </div>
+    }
+}
+
+<script>
+
+
+    $(document).ready(function () {
+
+        var pageno = @ViewBag.pageno+1;
+        var frompageno = pageno-1;
+        var nextpageno = pageno+1;
+
+        var nextUrl = "/product/Index?pageno=" + nextpageno;
+
+        var fromUrl = "/product/Index?pageno=" + frompageno;
+
+        $("#btnbefore").click(function () {
+            window.location.href = fromUrl;
+        });
+
+        $("#btnnext").click(function () {
+            window.location.href = nextUrl;
+        });
+
+        $('a[name="btndelete"]').on('click', function (event) {
+            var result = confirm("Hapus produk ini?");
+            if (result) {
+
+            } else {
+                event.preventDefault();
+            }
+        });
+    })
+</script>
+

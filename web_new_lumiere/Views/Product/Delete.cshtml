@@ -1,0 +1,64 @@
+﻿@model web_new_lumiere.Models.vw_product
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>vw_product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.product_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_price)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

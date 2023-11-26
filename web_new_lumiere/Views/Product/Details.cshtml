@@ -1,0 +1,58 @@
+﻿@model web_new_lumiere.Models.vw_product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>vw_product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.product_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_price)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_lumiere_newModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_brand">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="brand_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="brand_desc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_category">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="category_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="category_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_product">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="product_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="category_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="subcategory_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="brand_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="product_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="product_url" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="product_size" Type="Int32" />
+    <Property Name="product_price" Type="Double" />
+    <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_subcategory">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="subcategory_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="subcategory_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vw_product">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="product_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pid_category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="category_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pid_subcategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="subcategory_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pid_brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="brand_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="product_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="product_url" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="product_size" Type="Int32" />
+    <Property Name="product_price" Type="Double" />
+    <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="db_lumiere_newEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_brand" EntityType="Self.tbl_brand" />
+    <EntitySet Name="tbl_category" EntityType="Self.tbl_category" />
+    <EntitySet Name="tbl_product" EntityType="Self.tbl_product" />
+    <EntitySet Name="tbl_subcategory" EntityType="Self.tbl_subcategory" />
+    <EntitySet Name="vw_product" EntityType="Self.vw_product" />
+    <EntitySet Name="tbl_role" EntityType="db_lumiere_newModel.tbl_role" />
+    <EntitySet Name="tbl_user_role" EntityType="db_lumiere_newModel.tbl_user_role" />
+    <EntitySet Name="vw_user_roles" EntityType="db_lumiere_newModel.vw_user_roles" />
+  </EntityContainer>
+  <EntityType Name="tbl_role">
+    <Key>
+      <PropertyRef Name="roleid" />
+    </Key>
+    <Property Name="roleid" Type="Int32" Nullable="false" />
+    <Property Name="roledesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_user_role">
+    <Key>
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="email" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="roleid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vw_user_roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="roleid" Type="Int32" />
+    <Property Name="roledesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

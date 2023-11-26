@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_lumiere_newModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_brand">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="brand_code" Type="varchar" MaxLength="50" />
+    <Property Name="brand_desc" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="tbl_category">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="category_code" Type="varchar" MaxLength="50" />
+    <Property Name="category_name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_product">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="product_id" Type="varchar" MaxLength="50" />
+    <Property Name="category_code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="subcategory_code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="brand_code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="product_name" Type="varchar" MaxLength="50" />
+    <Property Name="product_desc" Type="text" />
+    <Property Name="product_url" Type="varchar" MaxLength="250" />
+    <Property Name="product_size" Type="int" />
+    <Property Name="product_price" Type="float" />
+  </EntityType>
+  <EntityType Name="tbl_role">
+    <Key>
+      <PropertyRef Name="roleid" />
+    </Key>
+    <Property Name="roleid" Type="int" Nullable="false" />
+    <Property Name="roledesc" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_subcategory">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="subcategory_code" Type="varchar" MaxLength="50" />
+    <Property Name="subcategory_desc" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_user_role">
+    <Key>
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="email" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="roleid" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'db_lumiere_new.dbo.vw_product' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_product">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="product_id" Type="varchar" MaxLength="50" />
+    <Property Name="pid_category" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="category_code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="pid_subcategory" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="subcategory_code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="pid_brand" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="brand_code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="product_name" Type="varchar" MaxLength="50" />
+    <Property Name="product_desc" Type="text" />
+    <Property Name="product_url" Type="varchar" MaxLength="250" />
+    <Property Name="product_size" Type="int" />
+    <Property Name="product_price" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'db_lumiere_new.dbo.vw_user_roles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_user_roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="roleid" Type="int" />
+    <Property Name="roledesc" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="db_lumiere_newModelStoreContainer">
+    <EntitySet Name="tbl_brand" EntityType="Self.tbl_brand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_category" EntityType="Self.tbl_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_product" EntityType="Self.tbl_product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_role" EntityType="Self.tbl_role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_subcategory" EntityType="Self.tbl_subcategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_user_role" EntityType="Self.tbl_user_role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vw_product" EntityType="Self.vw_product" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_product].[pid] AS [pid], 
+    [vw_product].[product_id] AS [product_id], 
+    [vw_product].[pid_category] AS [pid_category], 
+    [vw_product].[category_code] AS [category_code], 
+    [vw_product].[pid_subcategory] AS [pid_subcategory], 
+    [vw_product].[subcategory_code] AS [subcategory_code], 
+    [vw_product].[pid_brand] AS [pid_brand], 
+    [vw_product].[brand_code] AS [brand_code], 
+    [vw_product].[product_name] AS [product_name], 
+    [vw_product].[product_desc] AS [product_desc], 
+    [vw_product].[product_url] AS [product_url], 
+    [vw_product].[product_size] AS [product_size], 
+    [vw_product].[product_price] AS [product_price]
+    FROM [dbo].[vw_product] AS [vw_product]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_user_roles" EntityType="Self.vw_user_roles" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_user_roles].[Id] AS [Id], 
+    [vw_user_roles].[Email] AS [Email], 
+    [vw_user_roles].[roleid] AS [roleid], 
+    [vw_user_roles].[roledesc] AS [roledesc]
+    FROM [dbo].[vw_user_roles] AS [vw_user_roles]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

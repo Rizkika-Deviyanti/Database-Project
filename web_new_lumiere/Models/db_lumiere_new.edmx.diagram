@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="236ccb91cf024ec6a406627eb7fe1da7" Name="Diagram1">
+        <EntityTypeShape EntityType="db_lumiere_newModel.tbl_brand" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_lumiere_newModel.tbl_category" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_lumiere_newModel.tbl_product" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_lumiere_newModel.tbl_subcategory" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_lumiere_newModel.vw_product" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_lumiere_newModel.tbl_role" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="db_lumiere_newModel.tbl_user_role" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="db_lumiere_newModel.vw_user_roles" Width="1.5" PointX="0.75" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
